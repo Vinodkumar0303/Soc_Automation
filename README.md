@@ -42,17 +42,9 @@ n8n: Automates workflows from Wazuh alerts and integrations.
 
 VirusTotal API: Provides threat reputation for hashes, URLs, or domains.
 
-Telegram Bot: Sends real-time enriched security alerts to analysts.
+Telegram API Bot: Sends real-time enriched security alerts to analysts.
 
-2.3 Tools and Platforms
-
-Wazuh
-Open-source security monitoring platform used to collect logs, detect threats, and generate alerts.
-n8n
-Automation platform used to build workflows that process alerts and integrate with external services.
-VirusTotal API
-Online threat intelligence service used to check file hashes, URLs, or domains for malicious activity.
-Telegram Bot
-Used for sending real-time alert notifications to analysts with enriched incident details.
-Virtual Machines 
-The environment can run on local VMs or cloud servers based on available resources.
+2.4 Prior Knowledge
+Basic Understanding of Virtual Machines: Familiarity with setting up and managing VMs using VMware or similar virtualization platforms.
+Basic Linux Command Line Skills: Ability to perform essential tasks in a Linux environment, such as installing software packages and configuring services.
+Knowledge of Security Operations and Tools: Foundational understanding of security monitoring, event logging, and incident response concepts and tools.
