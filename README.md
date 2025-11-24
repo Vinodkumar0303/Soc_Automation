@@ -24,18 +24,24 @@ Enhance Incident Response Capabilities: Automate responsive actions to security 
 Improve SOC Efficiency: Reduce the workload on SOC analysts by automating routine tasks, allowing them to focus on high-priority issues and strategic initiatives.
 
 2. Prerequisites
-3. 
+
 2.1 Hardware Requirements
 A host machine with enough CPU, RAM, and storage to run multiple virtual machines.
 
 2.2 Software Requirements
 
 Virtualization Platform (VMware/VirtualBox): Used to create and manage virtual machines.
+
 Windows 10: Client machine for generating events with Sysmon.
+
 Ubuntu 22.04: Server OS hosting Wazuh and n8n services.
+
 Sysmon: Logs detailed endpoint activity for security analysis.
+
 n8n: Automates workflows from Wazuh alerts and integrations.
+
 VirusTotal API: Provides threat reputation for hashes, URLs, or domains.
+
 Telegram Bot: Sends real-time enriched security alerts to analysts.
 
 2.3 Tools and Platforms
