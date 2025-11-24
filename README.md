@@ -514,3 +514,49 @@ When All Nodes Are Properly executed
 Final Alert
 
 ![image apt](https://github.com/Vinodkumar0303/Soc_Automation/blob/4a16639480685b5e7245df4178a11a5d7698e1d0/image/WhatsApp%20Image%202025-11-24%20at%2012.22.44_1cafc899.jpg)
+
+
+6. Conclusion
+
+In this SOC Automation Lab, we successfully built an end-to-end detection and response system using open-source tools. The objective was to simulate real security events, monitor them through Wazuh, automate enrichment via n8n, and deliver actionable alerts to analysts through Telegram.
+
+Key accomplishments include:
+
+Installing Windows 10 as the endpoint and enabling Sysmon to generate detailed security telemetry.
+
+Configuring Wazuh as the central SIEM platform to collect logs, detect suspicious activity, and generate alerts.
+
+Integrating VirusTotal API in n8n to automatically enrich alerts with threat reputation data.
+
+Creating a Telegram Bot to provide real-time notifications to SOC analysts.
+
+Designing an automation workflow in n8n to:
+
+Receive alerts from Wazuh,
+
+Extract indicators such as hashes/URLs,
+
+Query VirusTotal for reputation,
+
+Format the results,
+
+Send actionable alerts to Telegram.
+
+This lab provides hands-on experience in building an automated SOC pipeline that reduces manual intervention, accelerates response time, and improves decision-making efficiency.
+
+The automation framework can be expanded further by:
+
+Adding more threat intelligence sources (AbuseIPDB, AlienVault OTX, GreyNoise).
+
+Integrating case management tools like TheHive.
+
+Automating remediation steps such as disabling accounts or isolating endpoints.
+
+Building advanced playbooks for malware detection, lateral movement, or persistence.
+
+A SOC that leverages automation becomes more efficient, responsive, and resilient. Continuous improvement, regular tuning, and adapting to evolving threats are essential for maintaining a strong security posture.
+
+
+7. References
+
+https://youtu.be/QQSEWwOlc_E?si=GselgCDT5uJF0Dkm
