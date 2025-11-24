@@ -402,6 +402,109 @@ HTTP Method: POST
 
 Path: /alerts
 
+🤖 Telegram Bot Setup for n8n Alerts
+
+This section explains how to create a Telegram bot, get its API token, and configure alerts in n8n.
+
+✅ 1. Create a Telegram Bot
+
+Open Telegram.
+
+Search: BotFather
+
+Start chat → Press /start
+
+Run command:
+
+/newbot
+
+
+Enter a bot name (example: SOC Alert Bot)
+
+Enter a bot username (must end with _bot)
+Example: soc_alert_bot
+
+You will receive:
+
+Done! Congratulations on your new bot.
+Use this token to access the HTTP API:
+123456789:ABCDEF...
+
+
+👉 Copy the Token — this is your Bot API key.
+
+🔐 2. Get Your Telegram Chat ID
+Option A — Using @userinfobot
+
+Search: @userinfobot
+
+Start chat
+
+It will display:
+
+Your Chat ID: 123456789
+
+
+Save this ID.
+
+📦 3. Setup Telegram Node in n8n
+Step 1 — Open n8n Dashboard
+http://YOUR_IP:5678
+
+
+Example login credentials:
+
+Username: admin
+Password: admin123
+
+🛠️ 4. Create a Workflow
+
+Create new workflow
+
+Add Webhook Node
+
+Method: POST
+
+Path: /alert
+
+Example payload:
+
+{
+  "alert": "wazuh",
+  "severity": "high",
+  "message": "Suspicious process detected"
+}
+
+➕ 5. Add Telegram → Send Message Node
+
+Click + Add Node
+
+Search → Telegram
+
+Select Send Message
+
+Set the fields:
+
+Bot Token → paste from BotFather
+
+Chat ID → your ID (number only)
+
+Message example:
+
+🚨 SOC Alert
+Type: {{$json.alert}}
+Severity: {{$json.severity}}
+Details: {{$json.message}}
+
+
+Variables {{$json...}} use data from the Webhook.
+
+💾 6. Save & Activate Workflow
+
+Turn Active = ON
+
+Now your bot is live.
+
 
 ![image apt](https://github.com/Vinodkumar0303/Soc_Automation/blob/77b8badd367533db87713deb044f2dde8fc4329e/image/Screenshot%202025-11-24%20162515.png)
 
