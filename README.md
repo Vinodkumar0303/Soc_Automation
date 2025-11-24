@@ -126,7 +126,7 @@ Default port: 1514
 Start service after install:
 
 Restart-Service wazuh
-``` 
+```
 🛡️ Wazuh Installation (Ubuntu 22.04)
 
 This guide installs Wazuh Manager + Wazuh Indexer + Wazuh Dashboard using the official installation script.
@@ -206,12 +206,136 @@ sudo systemctl status wazuh-dashboard
 
 
 All should show: Active (running).
-📁 Wazuh ossec.conf File Path (Ubuntu)
-```
-/var/ossec/etc/ossec.conf
 
-🔧 Open it with Nano editor
-sudo nano /var/ossec/etc/ossec.conf
-```
-![image apt](https://github.com/Vinodkumar0303/Soc_Automation/blob/e4482fc9210cda0aaff9444ca30a5cef6261be93/image/WhatsApp%20Image%202025-11-23%20at%2021.36.36_1cf4bd77.jpg)
+🔥 What is n8n?
 
+n8n is an open-source automation tool that lets you connect APIs, security tools, and workflows — similar to Zapier, but free and self-hosted.
+We use n8n to automate SOC alerts, enrich incidents, and send notifications (e.g., Telegram).
+
+```
+🚀 1. Install Docker & Docker Compose (Ubuntu)
+sudo apt update && sudo apt install -y ca-certificates curl gnupg lsb-release
+
+Add Docker GPG Key
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg \
+| sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+Add Docker Repository
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] \
+https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable" \
+| sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+Install Docker
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+🐳 2. Create n8n Docker Setup
+
+Create a folder:
+
+mkdir ~/n8n && cd ~/n8n
+
+
+Create a file:
+
+nano docker-compose.yml
+
+
+Paste:
+
+version: '3'
+
+services:
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: n8n
+    restart: always
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=admin123
+      - N8N_PORT=5678
+    ports:
+      - "5678:5678"
+    volumes:
+      - ./data:/home/node/.n8n
+
+
+📌 Change the username/password later.
+
+▶️ 3. Start n8n
+docker compose up -d
+
+```
+
+Check status:
+
+docker ps
+
+🌐 4. Access n8n
+
+Open your browser:
+
+http://YOUR_IP:5678
+
+
+Example:
+
+http://127.0.0.1:5678
+
+🌉 5. Install ngrok
+sudo snap install ngrok
+
+🔐 6. Add Your Auth Token
+
+Go to: https://dashboard.ngrok.com/get-started/setup
+
+Copy your token → paste it:
+
+ngrok config add-authtoken YOUR_TOKEN_HERE
+
+🚀 7. Expose n8n to the Internet
+ngrok http 5678
+
+
+You will get:
+
+Forwarding: https://xxxx.ngrok-free.app → http://localhost:5678
+
+
+Use this HTTPS link for:
+
+Telegram webhooks
+
+VirusTotal callbacks
+
+Wazuh → n8n triggers
+
+Browser access outside your network
+
+🔄 Restart Commands
+
+Restart Docker container:
+
+docker restart n8n
+
+
+Stop:
+
+docker compose down
+
+
+Start again:
+
+docker compose up -d
+
+✔️ Notes
+
+n8n runs on port 5678
+
+Persistent data stored in ~/n8n/data
+
+Use ngrok only for lab/testing — not production
