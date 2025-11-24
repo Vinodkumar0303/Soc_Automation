@@ -131,6 +131,7 @@ Restart-Service wazuh
 
 This guide installs Wazuh Manager + Wazuh Indexer + Wazuh Dashboard using the official installation script.
 
+```
 📥 Step 1 — Update System
 sudo apt update && sudo apt upgrade -y
 
@@ -146,6 +147,7 @@ chmod +x wazuh-install.sh
 ▶️ Step 4 — Run Installer
 sudo ./wazuh-install.sh -a
 
+```
 
 Installs:
 
@@ -194,18 +196,36 @@ https://192.168.1.100
 
 Ignore browser warning → continue anyway.
 
+📁 Wazuh ossec.conf File Path (Ubuntu)
+```
+/var/ossec/etc/ossec.conf
+
+🔧 Open it with Nano editor
+sudo nano /var/ossec/etc/ossec.conf
+```
+![imagw apt](https://github.com/Vinodkumar0303/Soc_Automation/blob/e4482fc9210cda0aaff9444ca30a5cef6261be93/image/WhatsApp%20Image%202025-11-23%20at%2021.36.36_1cf4bd77.jpg)
+```
+
+🔄 After making changes, restart Wazuh Manager
+sudo systemctl restart wazuh-manager
+
 🧪 Verify Services
 Wazuh Manager
-sudo systemctl status wazuh-manager
+sudo systemctl restart wazuh-manager
 
 Wazuh Indexer
-sudo systemctl status wazuh-indexer
+sudo systemctl restart wazuh-indexer
 
 Wazuh Dashboard
-sudo systemctl status wazuh-dashboard
+sudo systemctl restart wazuh-dashboard
+
+And  check the status
 
 
 All should show: Active (running).
+
+```
+
 
 🔥 What is n8n?
 
