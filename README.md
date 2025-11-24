@@ -359,3 +359,55 @@ n8n runs on port 5678
 Persistent data stored in ~/n8n/data
 
 Use ngrok only for lab/testing — not production
+
+![image apt](https://github.com/Vinodkumar0303/Soc_Automation/blob/4a16639480685b5e7245df4178a11a5d7698e1d0/image/WhatsApp%20Image%202025-11-23%20at%2021.36.38_7cc55102.jpg)
+
+connection:
+
+🔑 Login to n8n
+
+After installing and running n8n:
+
+👉 Open your browser:
+
+http://YOUR_IP:5678
+
+
+Example:
+
+http://127.0.0.1:5678
+
+
+Enter the credentials you set in docker-compose.yml:
+
+Username: admin
+Password: admin123
+
+
+⚠️ Change the default password after first login.
+
+🧠 Create Your First Workflow
+
+Click New → Workflow
+
+Click Add Node
+
+Search for: Webhook
+
+Select Webhook Trigger
+
+Set:
+
+HTTP Method: POST
+
+Path: /alerts
+
+
+![image apt](https://github.com/Vinodkumar0303/Soc_Automation/blob/77b8badd367533db87713deb044f2dde8fc4329e/image/Screenshot%202025-11-24%20162515.png)
+
+When All Nodes Are Properly executed 
+![image apt](https://github.com/Vinodkumar0303/Soc_Automation/blob/745e7995383135290869f7e9218df3ffc33e6c36/image/Screenshot%202025-11-24%20162952.png)
+
+Final Alert
+
+![image apt](https://github.com/Vinodkumar0303/Soc_Automation/blob/4a16639480685b5e7245df4178a11a5d7698e1d0/image/WhatsApp%20Image%202025-11-24%20at%2012.22.44_1cafc899.jpg)
