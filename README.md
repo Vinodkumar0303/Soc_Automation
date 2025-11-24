@@ -126,7 +126,7 @@ Default port: 1514
 Start service after install:
 
 Restart-Service wazuh
-```
+``` 
 🛡️ Wazuh Installation (Ubuntu 22.04)
 
 This guide installs Wazuh Manager + Wazuh Indexer + Wazuh Dashboard using the official installation script.
@@ -206,4 +206,12 @@ sudo systemctl status wazuh-dashboard
 
 
 All should show: Active (running).
+📁 Wazuh ossec.conf File Path (Ubuntu)
+```
+/var/ossec/etc/ossec.conf
+
+🔧 Open it with Nano editor
+sudo nano /var/ossec/etc/ossec.conf
+```
+![image apt](https://github.com/Vinodkumar0303/Soc_Automation/blob/e4482fc9210cda0aaff9444ca30a5cef6261be93/image/WhatsApp%20Image%202025-11-23%20at%2021.36.36_1cf4bd77.jpg)
 
