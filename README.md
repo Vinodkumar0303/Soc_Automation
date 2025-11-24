@@ -107,6 +107,103 @@ Extract to a folder inside your Windows 10 VM.
 
 ▶️ Step 3 — Run Mimikatz
 
-Right-click: Run as Administrator  ```
-vsjkdbvksdbvkjsd
+Right-click: Run as Administrator
+Install Wazuh Agent (Windows 10)
+
+Download from ⚙️ Dashboard → Agents → Deploy new agent
+
+Or manual:
+
+https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.msi
+
+
+During setup:
+
+Add Manager IP
+
+Default port: 1514
+
+Start service after install:
+
+Restart-Service wazuh
+```
+🛡️ Wazuh Installation (Ubuntu 22.04)
+
+This guide installs Wazuh Manager + Wazuh Indexer + Wazuh Dashboard using the official installation script.
+
+📥 Step 1 — Update System
+sudo apt update && sudo apt upgrade -y
+
+🚀 Step 2 — Download Wazuh Installation Script
+curl -sO https://packages.wazuh.com/4.7/wazuh-install.sh
+
+
+⚠️ Replace 4.7 with current version if needed.
+
+🔐 Step 3 — Make Script Executable
+chmod +x wazuh-install.sh
+
+▶️ Step 4 — Run Installer
+sudo ./wazuh-install.sh -a
+
+
+Installs:
+
+Wazuh Manager
+
+Wazuh Dashboard
+
+Wazuh Indexer (OpenSearch)
+
+⏳ Step 5 — Wait for Installation (5–15 mins)
+
+Installer will:
+
+Configure cluster automatically
+
+Generate certificates
+
+Start all services
+
+🔑 Step 6 — Dashboard Credentials
+
+After installation, run:
+
+sudo cat /usr/share/wazuh-dashboard/data/users/admin.json
+
+
+You will get:
+
+Username: admin
+Password: <random-generated-password>
+
+
+Save the password.
+
+🌐 Step 7 — Access the Wazuh Dashboard
+
+Open in browser:
+
+https://<your-server-ip>
+
+
+Example:
+
+https://192.168.1.100
+
+
+Ignore browser warning → continue anyway.
+
+🧪 Verify Services
+Wazuh Manager
+sudo systemctl status wazuh-manager
+
+Wazuh Indexer
+sudo systemctl status wazuh-indexer
+
+Wazuh Dashboard
+sudo systemctl status wazuh-dashboard
+
+
+All should show: Active (running).
 
