@@ -46,5 +46,65 @@ Telegram API Bot: Sends real-time enriched security alerts to analysts.
 
 2.4 Prior Knowledge
 Basic Understanding of Virtual Machines: Familiarity with setting up and managing VMs using VMware or similar virtualization platforms.
+
 Basic Linux Command Line Skills: Ability to perform essential tasks in a Linux environment, such as installing software packages and configuring services.
+
 Knowledge of Security Operations and Tools: Foundational understanding of security monitoring, event logging, and incident response concepts and tools.
+
+## 🔧 3. Setup Environment (Windows 10, Sysmon, Mimikatz)
+
+### 3.1 Download Windows 10 ISO
+1. Go to the official Microsoft Windows 10 download page.
+2. Click **Download tool now**.
+3. Run the Media Creation Tool.
+4. Select **Create installation media (ISO)**.
+5. Choose:
+   - Edition: Windows 10
+   - Architecture: 64-bit
+6. Save the ISO file and use it to install Windows in a VM.
+
+---
+
+### 3.2 Install Sysmon on Windows 10
+
+#### 📥 Step 1 — Download Sysmon
+- Search **Microsoft Sysinternals Sysmon**.
+- Download the ZIP file (Sysmon.zip).
+
+#### 📥 Step 2 — Download Recommended Sysmon Config
+- Search: **Sysmon config SwiftOnSecurity**
+- Download the `sysmonconfig.xml` file (community maintained).
+
+#### 🚀 Step 3 — Install Sysmon
+Open **PowerShell as Administrator** in the folder where Sysmon is extracted:
+
+```powershell
+.\sysmon64.exe -i sysmonconfig.xml
+✔ Step 4 — Verify Sysmon Status
+Get-Service sysmon64
+Status should be: Running
+
+3.3 Installing Mimikatz (For Lab Use Only)
+
+⚠️ Mimikatz is a penetration-testing tool.
+Use it only on your own VM / lab.
+Never on real or production systems.
+
+📥 Step 1 — Download Official Repo
+
+Search:
+Mimikatz GitHub gentilkiwi
+
+Open official repo
+
+Go to Releases
+
+Download mimikatz_trunk.zip
+
+📦 Step 2 — Extract the ZIP
+
+Extract to a folder inside your Windows 10 VM.
+
+▶️ Step 3 — Run Mimikatz
+
+Right-click: Run as Administrator
