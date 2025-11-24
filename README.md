@@ -14,5 +14,5 @@ These alerts are forwarded to n8n, which orchestrates automated workflows—perf
 
 Based on the severity, the automation sends a structured Telegram notification to the SOC analyst, containing indicators of compromise (IoCs), hash reputation results, and recommended actions. This enables fast, informed response without manual investigation.
 
-image/Gemini_Generated_Image_ngxc3ungxc3ungxc.png
+![image alt](https://github.com/Vinodkumar0303/Soc_Automation/blob/095bbcd465e5a0f6b5560ffdc5044dd0344c506d/image/Gemini_Generated_Image_ngxc3ungxc3ungxc.png)
 
