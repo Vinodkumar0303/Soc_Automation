@@ -17,53 +17,36 @@ Based on the severity, the automation sends a structured Telegram notification t
 ![image alt](https://github.com/Vinodkumar0303/Soc_Automation/blob/095bbcd465e5a0f6b5560ffdc5044dd0344c506d/image/Gemini_Generated_Image_ngxc3ungxc3ungxc.png)
 
 1.2 Purpose and Goals
+
 Automate Event Collection and Analysis: Ensure security events are collected and analyzed in real-time with minimal manual intervention, enabling proactive threat detection and response.
 Streamline Alerting Process: Automate the process of generating and forwarding alerts to relevant systems and personnel, reducing response times and minimizing the risk of overlooking critical incidents.
 Enhance Incident Response Capabilities: Automate responsive actions to security incidents, improving reaction time, consistency, and effectiveness in mitigating threats.
 Improve SOC Efficiency: Reduce the workload on SOC analysts by automating routine tasks, allowing them to focus on high-priority issues and strategic initiatives.
 
 2. Prerequisites
+3. 
 2.1 Hardware Requirements
-A host machine capable of running multiple virtual machines simultaneously.
-Sufficient CPU, RAM, and disk space to support the VMs and their expected workloads.
+A host machine with enough CPU, RAM, and storage to run multiple virtual machines.
 
 2.2 Software Requirements
-Virtualization Platform (VMware / VirtualBox)
 
-Used to create and manage virtual machines for the SOC environment.
-Provides isolated systems for testing and automation.
+Virtualization Platform (VMware/VirtualBox): Used to create and manage virtual machines.
+Windows 10: Client machine for generating events with Sysmon.
+Ubuntu 22.04: Server OS hosting Wazuh and n8n services.
+Sysmon: Logs detailed endpoint activity for security analysis.
+n8n: Automates workflows from Wazuh alerts and integrations.
+VirusTotal API: Provides threat reputation for hashes, URLs, or domains.
+Telegram Bot: Sends real-time enriched security alerts to analysts.
 
-Windows 10
+2.3 Tools and Platforms
 
-Client machine where real activity and security events are generated.
-Configured with Sysmon to collect detailed system logs.
-
-Ubuntu 22.04
-
-Server environment for hosting:
-
-Wazuh Manager
-
-n8n Automation Platform
-
-Stable and widely supported for SOC deployments.
-
-Sysmon
-
-A Windows monitoring tool that logs process, file, and network events.
-Used to generate high-quality security telemetry for analysis.
-
+Wazuh
+Open-source security monitoring platform used to collect logs, detect threats, and generate alerts.
 n8n
-
-A workflow automation tool that processes Wazuh alerts, enriches them with external services, and triggers automated responses.
-
+Automation platform used to build workflows that process alerts and integrate with external services.
 VirusTotal API
-
-Provides threat reputation data for files, hashes, URLs, or domains.
-Helps classify alerts and prioritize incidents.
-
+Online threat intelligence service used to check file hashes, URLs, or domains for malicious activity.
 Telegram Bot
-
-Delivers real-time notifications to SOC analysts with enriched alert details.
-Allows faster decision-making and response.
-
+Used for sending real-time alert notifications to analysts with enriched incident details.
+Virtual Machines 
+The environment can run on local VMs or cloud servers based on available resources.
