@@ -107,4 +107,6 @@ Extract to a folder inside your Windows 10 VM.
 
 ▶️ Step 3 — Run Mimikatz
 
-Right-click: Run as Administrator
+Right-click: Run as Administrator  ```
+vsjkdbvksdbvkjsd
+
